@@ -1,0 +1,16 @@
+Active Learning là một trường hợp của Semi-Supervised machine learning (Học máy bán giám sát), thường được sử dụng để tận dụng một lượng nhỏ dữ liệu được dán nhãn.
+Học tích cực: Định nghĩa và khái niệm
+Giả thuyết chính trong học tập tích cực là nếu một thuật toán học tập có thể chọn dữ liệu mà nó muốn học, nó có thể thực hiện tốt hơn so với các phương pháp truyền thống với ít hơn đáng kể dữ liệu cho đào tạo.
+
+Nhưng những phương pháp truyền thống này chính xác là gì?
+Đây là những nhiệm vụ liên quan đến việc thu thập một lượng lớn dữ liệu được lấy mẫu ngẫu nhiên từ phân phối cơ bản và sử dụng bộ dữ liệu này để huấn luyện một mô hình có thể thực hiện một số loại dự đoán. Bạn sẽ gọi phương pháp này là học thụ động.
+Một trong những nhiệm vụ tốn thời gian hơn trong học tập thụ động là thu thập dữ liệu được dán nhãn.
+
+Lấy ví dụ: Bạn có thể muốn dự đoán liệu một bệnh nhân có bị ung thư tuyến tụy hay không, tuy nhiên, bạn chỉ có thể có cơ hội cho một số ít bệnh nhân khám thêm để thu thập các tính năng, v.v. Trong trường hợp này, thay vì chọn ngẫu nhiên bệnh nhân, chúng tôi có thể chọn bệnh nhân dựa trên các tiêu chí nhất định. Một tiêu chí ví dụ có thể là nếu bệnh nhân uống rượu và trên 40 tuổi. Tiêu chí này không phải là tĩnh mà có thể thay đổi tùy thuộc vào kết quả từ các bệnh nhân trước đó.Ví dụ, nếu bạn nhận ra rằng mô hình của bạn rất tốt trong việc dự đoán ung thư tuyến tụy cho những người trên 50 tuổi, nhưng khó khăn để đưa ra dự đoán chính xác cho những người trong khoảng 40-50 tuổi, đây có thể là tiêu chí mới của bạn.
+
+Kịch bản
+Trong học tập tích cực, thường có ba loại kịch bản trong đó người học sẽ truy vấn nhãn của các mẫu. Ba kịch bản chính đã được xem xét trong bài viết là:
+Membership Query Synthesis: đây là một thuật ngữ lớn có nghĩa đơn giản là người học tạo / xây dựng một mẫu (từ một số phân phối tự nhiên cơ bản). Ví dụ, nếu dữ liệu là hình ảnh của các chữ số, người học sẽ tạo ra một hình ảnh tương tự như một chữ số (nó có thể được xoay hoặc một phần của chữ số bị loại trừ) và hình ảnh được tạo này được gửi đến nhà tiên tri để dán nhãn.
+Stream-Based Selective Sampling: trong cài đặt này, bạn đưa ra giả định rằng việc lấy một phiên bản không ghi nhãn là miễn phí. Dựa trên giả định này, bạn chọn từng mẫu một từ bộ dữ liệu không có nhãn, xác định xem nó cần được dán nhãn hoặc loại bỏ, sau đó lặp lại với hình ảnh tiếp theo.
+Pool-Based sampling: cài đặt này giả định rằng có một nhóm lớn dữ liệu không ghi nhãn, như với Stream-Based Selective Sampling. Đây là kịch bản phổ biến nhất trong cộng đồng học tập tích cực. Đây là kịch bản phổ biến nhất trong cộng đồng học tập tích cực.Khi đó, tất cả các mẫu không ghi nhãn sẽ được xếp hạng và sau đó mẫu tốt nhất (nhiều thông tin nhất) sẽ được chọn và nhãn của chúng được yêu cầu.
+
